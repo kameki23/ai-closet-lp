@@ -32,8 +32,19 @@ section{margin-bottom:120px;position:relative}
 .btn:hover{transform:translateY(-2px);box-shadow:0 12px 24px rgba(0,0,0,.12)}
 .btn.primary{background:var(--noir);color:#fff}
 .btn.outline{background:transparent;color:var(--noir);border:1.5px solid var(--noir)}
-.hero-visual{aspect-ratio:1/1.05;border-radius:30px;background:linear-gradient(135deg,#3D3D3D,#1A1A1A);position:relative;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.18)}
-.hero-visual::after{content:"AI CLOSET STYLIST";position:absolute;left:0;right:0;bottom:30px;text-align:center;color:rgba(255,255,255,.32);font-size:11px;letter-spacing:5px;font-weight:700}
+.hero-visual{
+  aspect-ratio:1/1.05;border-radius:30px;position:relative;overflow:hidden;
+  box-shadow:0 30px 80px rgba(0,0,0,.18);
+  background:#1A1A1A url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1200&q=85&auto=format&fit=crop') center/cover no-repeat;
+}
+.hero-visual::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,transparent 50%,rgba(0,0,0,.45) 100%);
+}
+.hero-visual .badge{
+  position:absolute;left:24px;bottom:24px;color:#fff;font-size:11px;
+  letter-spacing:5px;font-weight:700;text-shadow:0 2px 8px rgba(0,0,0,.4);z-index:2;
+}
 
 /* shared head */
 .section-head{text-align:center;margin-bottom:60px}
@@ -43,9 +54,14 @@ section{margin-bottom:120px;position:relative}
 
 /* features */
 .features{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
-.feature{padding:36px 28px;background:#fff;border-radius:18px;border:1px solid var(--border);transition:transform .25s,box-shadow .25s}
+.feature{background:#fff;border-radius:18px;border:1px solid var(--border);transition:transform .25s,box-shadow .25s;overflow:hidden;display:flex;flex-direction:column}
 .feature:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,.08)}
-.feature .ic{width:48px;height:48px;border-radius:12px;background:var(--ivory);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:18px}
+.feature .photo{height:180px;background-size:cover;background-position:center}
+.feature .photo.ph1{background-image:url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80&auto=format&fit=crop')}
+.feature .photo.ph2{background-image:url('https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=800&q=80&auto=format&fit=crop')}
+.feature .photo.ph3{background-image:url('https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?w=800&q=80&auto=format&fit=crop')}
+.feature .body{padding:28px 26px}
+.feature .ic{width:40px;height:40px;border-radius:10px;background:var(--ivory);display:flex;align-items:center;justify-content:center;font-size:18px;margin-bottom:14px}
 .feature h3{font-size:18px;font-weight:600;margin-bottom:10px}
 .feature p{font-size:14px;color:var(--text2);line-height:1.7}
 
@@ -71,10 +87,18 @@ section{margin-bottom:120px;position:relative}
 .plan li::before{content:"✓";color:var(--gold);font-weight:700}
 
 /* CTA */
-.final-cta{background:var(--noir);color:#fff;padding:80px 60px;border-radius:30px;text-align:center}
-.final-cta h2{font-size:42px;font-weight:200;margin-bottom:18px;letter-spacing:.5px}
-.final-cta p{color:rgba(255,255,255,.7);font-size:15px;margin-bottom:34px;max-width:520px;margin-left:auto;margin-right:auto}
-.final-cta .btn.primary{background:#fff;color:var(--noir)}
+.final-cta{
+  position:relative;color:#fff;padding:120px 60px;border-radius:30px;text-align:center;overflow:hidden;isolation:isolate;
+  background:#1A1A1A url('https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=1600&q=80&auto=format&fit=crop') center/cover no-repeat;
+}
+.final-cta::before{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(26,26,26,.85) 0%,rgba(26,26,26,.6) 100%);
+  z-index:-1;
+}
+.final-cta h2{font-size:42px;font-weight:200;margin-bottom:18px;letter-spacing:.5px;position:relative}
+.final-cta p{color:rgba(255,255,255,.85);font-size:15px;margin-bottom:34px;max-width:520px;margin-left:auto;margin-right:auto;position:relative}
+.final-cta .btn.primary{background:#fff;color:var(--noir);position:relative}
 
 /* footer */
 .site-footer{border-top:1px solid var(--border);padding:50px 24px;background:var(--surface)}
@@ -112,7 +136,7 @@ section{margin-bottom:120px;position:relative}
         <a class="btn outline" href="#how">使い方を見る</a>
       </div>
     </div>
-    <div class="hero-visual"></div>
+    <div class="hero-visual"><div class="badge">AI CLOSET STYLIST</div></div>
   </section>
 
   <section id="features">
@@ -123,19 +147,28 @@ section{margin-bottom:120px;position:relative}
     </div>
     <div class="features">
       <div class="feature">
-        <div class="ic">📸</div>
-        <h3>撮るだけで自動分類</h3>
-        <p>写真を撮ると AI が即座に色・カテゴリ・スタイル・季節を判定。手入力ゼロでクローゼットが完成します。</p>
+        <div class="photo ph1"></div>
+        <div class="body">
+          <div class="ic">📸</div>
+          <h3>撮るだけで自動分類</h3>
+          <p>写真を撮ると AI が即座に色・カテゴリ・スタイル・季節を判定。手入力ゼロでクローゼットが完成します。</p>
+        </div>
       </div>
       <div class="feature">
-        <div class="ic">✨</div>
-        <h3>気分でコーディネート</h3>
-        <p>「リラックス・カフェ・秋」など気分や場所を選ぶだけ。手持ちの服から AI が組み合わせを提案します。</p>
+        <div class="photo ph2"></div>
+        <div class="body">
+          <div class="ic">✨</div>
+          <h3>気分でコーディネート</h3>
+          <p>「リラックス・カフェ・秋」など気分や場所を選ぶだけ。手持ちの服から AI が組み合わせを提案します。</p>
+        </div>
       </div>
       <div class="feature">
-        <div class="ic">🗂</div>
-        <h3>自分のカテゴリで整理</h3>
-        <p>トップス、靴、アクセサリー…12 のプリセットに加えて、ワークウェアやスポーツなど自由にカテゴリを追加できます。</p>
+        <div class="photo ph3"></div>
+        <div class="body">
+          <div class="ic">🗂</div>
+          <h3>自分のカテゴリで整理</h3>
+          <p>トップス、靴、アクセサリー…12 のプリセットに加えて、ワークウェアやスポーツなど自由にカテゴリを追加できます。</p>
+        </div>
       </div>
     </div>
   </section>
