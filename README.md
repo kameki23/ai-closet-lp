@@ -1,6 +1,6 @@
-# AI Closet Stylist — Landing Page
+# Clothing Note — Landing Page
 
-[AI Closet Stylist](https://kameki23.github.io/ai-closet-lp/) のランディングページ、利用規約、プライバシーポリシーを公開する静的サイトです。
+[Clothing Note](https://kameki23.github.io/ai-closet-lp/) のランディングページ、利用規約、プライバシーポリシーを公開する静的サイトです。
 
 ## 構成
 
@@ -25,4 +25,4 @@ python3 -m http.server 8080
 
 ---
 
-© 2026 AI Closet Stylist · Made in Tokyo
+© 2026 Clothing Note · Made in Tokyo
