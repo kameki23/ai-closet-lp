@@ -1,0 +1,21 @@
+# Never commit secrets
+.env
+.env.local
+.env.production
+*.key
+*.pem
+*.p12
+*.p8
+*.mobileprovision
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/
+.idea/
+*.swp
+
+# Logs
+*.log
